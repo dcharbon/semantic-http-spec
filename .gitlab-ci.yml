@@ -1,0 +1,14 @@
+image: python:3.7-alpine
+
+pages:
+  script:
+  - pip install sphinx
+  - pip install sphinxcontrib-httpdomain
+  - pip install sphinxcontrib-httpexample
+  - pip install sphinx-jsonschema
+  - pip install solar-theme
+  - pip install make
+  - mkdir docs
+  - make clean
+  - make html
+  - cp -r build/html/* docs/.
