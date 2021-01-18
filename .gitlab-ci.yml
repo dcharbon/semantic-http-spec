@@ -8,7 +8,9 @@ pages:
   - pip install sphinx-jsonschema
   - pip install solar-theme
   - pip install make
-  - mkdir docs
+  - git status
+  - ls
+  - mkdir -p docs
   - make clean
   - make html
   - cp -r build/html/* docs/.
