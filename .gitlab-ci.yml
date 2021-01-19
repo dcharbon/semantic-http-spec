@@ -1,15 +1,15 @@
-image: python:3.7-alpine
+image: continuumio/miniconda3:latest
+
+before_script:
+  - conda env create -f environment.yml
+  - source activate sphinx-doc
 
 pages:
   script:
-  - pip install sphinx
-  - pip install sphinxcontrib-httpdomain
-  - pip install sphinxcontrib-httpexample
-  - pip install sphinx-jsonschema
-  - pip install solar-theme
-  - pip install make
-  - ls
   - mkdir -p docs
   - make clean
   - make html
   - cp -r build/html/* docs/.
+  artifacts:
+    paths:
+      - public
