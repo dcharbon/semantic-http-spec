@@ -14,3 +14,7 @@ pages:
   artifacts:
     paths:
       - public
+  only:
+    - master
+    - merge_requests
+  
