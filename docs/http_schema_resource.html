@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>HTTP Schema Resource &#8212; Semantic HTTP Resources 0.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-httpexample.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/documentation_options.js?v=837179f8"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/sphinxcontrib-httpexample.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -23,8 +22,9 @@
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -36,8 +36,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="http-schema-resource">
-<span id="index-0"></span><span id="id1"></span><h1>HTTP Schema Resource<a class="headerlink" href="#http-schema-resource" title="Permalink to this headline">¶</a></h1>
+  <section id="http-schema-resource">
+<span id="index-0"></span><span id="id1"></span><h1>HTTP Schema Resource<a class="headerlink" href="#http-schema-resource" title="Link to this heading">¶</a></h1>
 <p>An <em>HTTP Schema Resource</em> is a JSON resource providing a detailed description
 of the HTTP methods supported by an HTTP resource and is intended to be
 provided as the entity body on a successful response of the HTTP OPTIONS
@@ -49,200 +49,200 @@ and a <code class="docutils literal notranslate"><span class="pre">context</span
 <strong>MUST</strong> be the URI of a schema defining valid content for the Media Type. The
 value of a Media Type <code class="docutils literal notranslate"><span class="pre">context</span></code> property <strong>MUST</strong> be the URI of an RDF
 context resource for the Media Type.</p>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="nt">&quot;get&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;200&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-   <span class="p">,</span> <span class="nt">&quot;put&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;requestBody&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The updated content for the resource.&quot;</span>
-         <span class="p">,</span> <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-         <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
-                 <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="p">,</span> <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;200&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;400&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
+<span class="w">   </span><span class="nt">&quot;get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;put&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;requestBody&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The updated content for the resource.&quot;</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
+<span class="w">                 </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
 <span class="s2">                             missing required content.&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;401&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;UNAUTHORIZED: The request requires</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;401&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNAUTHORIZED: The request requires</span>
 <span class="s2">                             authentication.&quot;</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;403&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FORBIDDEN: The requires requires</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;403&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FORBIDDEN: The requires requires</span>
 <span class="s2">                             permissions the current authenticated</span>
 <span class="s2">                             request does not have.&quot;</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-   <span class="p">,</span> <span class="nt">&quot;delete&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;200&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;400&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;delete&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
 <span class="s2">                             missing required content.&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;401&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;UNAUTHORIZED: The request requires</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;401&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNAUTHORIZED: The request requires</span>
 <span class="s2">                             authentication.&quot;</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;403&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FORBIDDEN: The requires requires permissions</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;403&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FORBIDDEN: The requires requires permissions</span>
 <span class="s2">                             the current authenticated request does not</span>
 <span class="s2">                             have.&quot;</span>
-         <span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
 
-      <span class="p">}</span>
-   <span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-schema">
-<h2>JSON Schema<a class="headerlink" href="#json-schema" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-schema">
+<h2>JSON Schema<a class="headerlink" href="#json-schema" title="Link to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;TBD&quot;</span>
-    <span class="p">,</span> <span class="nt">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/draft-04/schema&quot;</span>
-    <span class="p">,</span> <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP Schema Resource&quot;</span>
-    <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A resource detailing the HTTP methods supported by a resource along with links to a schema describing that resource and a linked data description of the resource.&quot;</span>
-    <span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
-    <span class="p">,</span> <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;get&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpMethod&quot;</span> <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;put&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpMethod&quot;</span> <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;post&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpMethod&quot;</span> <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;delete&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpMethod&quot;</span> <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpMethod&quot;</span> <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="p">,</span> <span class="nt">&quot;definitions&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;HttpMethod&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;$$target&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpMethod&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;An HTTP Method&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;requestBody&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpRequestEntity&quot;</span> <span class="p">}</span>
-                <span class="p">,</span><span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
-                    <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A dictionary of valid HttpResponseEntity for the request, by HTTP response code.&quot;</span>
-                    <span class="p">,</span> <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/HttpResponseEntity&quot;</span> <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;HttpRequestEntity&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The entity that must be provided with the request.&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">}</span>
-                <span class="p">,</span> <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span> <span class="p">}</span>
-                <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitinos/EntityContent&quot;</span> <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;HttpResponseEntity&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;An HTTP response.&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
-                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span> <span class="p">}</span>
-                <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/EntityContent&quot;</span> <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;EntityContent&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;An object whose property keys are MIME types and property values are objects describing the MIME type.&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/definitions/EntityContentType&quot;</span> <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="p">,</span> <span class="nt">&quot;EntityContentType&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Details about resources defining and/or describing a specific entity content type.&quot;</span>
-            <span class="p">,</span> <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
-                    <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;If the entity may be mapped into RDF, this property **MUST** be the URL of a resource defning how to map the entity to RDF statemensts. For example, the URL of a JSON-LD context.&quot;</span>
-                <span class="p">}</span>
-                <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
-                    <span class="p">,</span> <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;If the entity is described by a schema defining valid and/or expected content of the entity, this property **MUST** be the URL of a resource defining the schema for the entity. For example, a JSON Schema.&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TBD&quot;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-04/schema&quot;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HTTP Schema Resource&quot;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A resource detailing the HTTP methods supported by a resource along with links to a schema describing that resource and a linked data description of the resource.&quot;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpMethod&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;put&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpMethod&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;post&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpMethod&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;delete&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpMethod&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpMethod&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;HttpMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;$$target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpMethod&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An HTTP Method&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;requestBody&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpRequestEntity&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                </span><span class="p">,</span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A dictionary of valid HttpResponseEntity for the request, by HTTP response code.&quot;</span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/HttpResponseEntity&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;HttpRequestEntity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The entity that must be provided with the request.&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitinos/EntityContent&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;HttpResponseEntity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An HTTP response.&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/EntityContent&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;EntityContent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An object whose property keys are MIME types and property values are objects describing the MIME type.&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/EntityContentType&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;EntityContentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Details about resources defining and/or describing a specific entity content type.&quot;</span>
+<span class="w">            </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;If the entity may be mapped into RDF, this property **MUST** be the URL of a resource defning how to map the entity to RDF statemensts. For example, the URL of a JSON-LD context.&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;If the entity is described by a schema defining valid and/or expected content of the entity, this property **MUST** be the URL of a resource defining the schema for the entity. For example, a JSON Schema.&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-ld-context">
-<h2>JSON-LD Context<a class="headerlink" href="#json-ld-context" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-  &quot;xsd&quot;: &quot;http://www.w3.org/2001/XMLSchema#&quot;
-  , &quot;rdf&quot;: &quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
-  , &quot;rdfs&quot;: &quot;http://www.w3.org/2000/01/rdf-schema#&quot;
-  , &quot;http&quot;:	&quot;http://www.w3.org/2011/http#&quot;
-  , &quot;http-methods&quot;: &quot;http://www.w3.org/2011/http-methods#&quot;
-  , &quot;get&quot;: { &quot;@id&quot;: &quot;http-methods:GET&quot; }
-  , &quot;post&quot;: { &quot;@id&quot;: &quot;http-methods:POST&quot; }
-  , &quot;put&quot;: { &quot;@id&quot;: &quot;http-methods:PUT&quot; }
-  , &quot;delete&quot;: { &quot;@id&quot;: &quot;http-methods:DELETE&quot; }
-  , &quot;options&quot;: { &quot;@id&quot;: &quot;http-methods:OPTIONS&quot; }
-  , &quot;title&quot;: { &quot;@id&quot;: &quot;rdfs:label&quot; }
-  , &quot;description&quot;: { &quot;@id&quot;: &quot;rdfs:comment&quot; }
-  TBD...
-}
+</section>
+<section id="json-ld-context">
+<h2>JSON-LD Context<a class="headerlink" href="#json-ld-context" title="Link to this heading">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;xsd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema#&quot;</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;rdf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;rdfs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/2000/01/rdf-schema#&quot;</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;http&quot;</span><span class="p">:</span><span class="w">	</span><span class="s2">&quot;http://www.w3.org/2011/http#&quot;</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;http-methods&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/2011/http-methods#&quot;</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http-methods:GET&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;post&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http-methods:POST&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;put&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http-methods:PUT&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;delete&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http-methods:DELETE&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http-methods:OPTIONS&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rdfs:label&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;@id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rdfs:comment&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="err">TBD...</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="http-examples">
-<h2>HTTP Examples<a class="headerlink" href="#http-examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="options">
-<h3>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="request">
-<h4>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="http-examples">
+<h2>HTTP Examples<a class="headerlink" href="#http-examples" title="Link to this heading">¶</a></h2>
+<section id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
+<section id="request">
+<h4>Request<a class="headerlink" href="#request" title="Link to this heading">¶</a></h4>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">OPTIONS</span> <span class="nn">/api/person/foo</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 <span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic V2h5IGFyZSB5b3UgbG9va2luZyBhdCB0aGlzPyBJdCdzIGEgc2VjcmV0IQ==</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="response">
-<h4>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="response">
+<h4>Response<a class="headerlink" href="#response" title="Link to this heading">¶</a></h4>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Date</span><span class="o">:</span> <span class="l">Thu, 04 Apr 2019 15:15:15 GMT</span>
 <span class="na">Content-Length</span><span class="o">:</span> <span class="l">XXXXX</span>
@@ -255,102 +255,102 @@ context resource for the Media Type.</p>
       <span class="l">type=&quot;application/ld+json&quot;</span>
 
 <span class="p">{</span>
-   <span class="nt">&quot;get&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;200&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-   <span class="p">,</span> <span class="nt">&quot;put&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;requestBody&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The updated content for the resource.&quot;</span>
-         <span class="p">,</span> <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-         <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
-                 <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="p">,</span> <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;200&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;400&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
+<span class="w">   </span><span class="nt">&quot;get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;put&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;requestBody&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The updated content for the resource.&quot;</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
+<span class="w">                 </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
 <span class="s2">                             missing required content.&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;401&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;UNAUTHORIZED: The request requires</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;401&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNAUTHORIZED: The request requires</span>
 <span class="s2">                             authentication.&quot;</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;403&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FORBIDDEN: The requires requires</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;403&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FORBIDDEN: The requires requires</span>
 <span class="s2">                             permissions the current authenticated</span>
 <span class="s2">                             request does not have.&quot;</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-   <span class="p">,</span> <span class="nt">&quot;delete&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="nt">&quot;200&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;400&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;delete&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BAD REQUEST: The request was malformed or</span>
 <span class="s2">                             missing required content.&quot;</span>
-             <span class="p">,</span> <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
-                 <span class="nt">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
-                     <span class="p">,</span> <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
-                 <span class="p">}</span>
-             <span class="p">}</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;401&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;UNAUTHORIZED: The request requires</span>
+<span class="w">             </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;application/json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-ld context url for error objects&gt;&quot;</span>
+<span class="w">                     </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;json-schema url for error objects&gt;&quot;</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;401&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNAUTHORIZED: The request requires</span>
 <span class="s2">                             authentication.&quot;</span>
-         <span class="p">}</span>
-         <span class="p">,</span> <span class="nt">&quot;403&quot;</span><span class="p">:</span> <span class="p">{</span>
-             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FORBIDDEN: The requires requires permissions</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;403&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FORBIDDEN: The requires requires permissions</span>
 <span class="s2">                             the current authenticated request does not</span>
 <span class="s2">                             have.&quot;</span>
-         <span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
 
-      <span class="p">}</span>
-   <span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
           </div>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">Semantic HTTP Resources</a></h1>
 
@@ -361,8 +361,17 @@ context resource for the Media Type.</p>
 
 
 
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -390,16 +399,6 @@ context resource for the Media Type.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
 
 
 
@@ -413,11 +412,11 @@ context resource for the Media Type.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2019, Quansight LLC.
+      &#169;2019, Quansight LLC.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="_sources/http_schema_resource.rst.txt"

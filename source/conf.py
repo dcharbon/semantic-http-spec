@@ -43,7 +43,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinxcontrib.httpdomain',
     'sphinxcontrib.httpexample',
-    'sphinx-jsonschema',
+    # 'sphinx-jsonschema',  # Temporarily disabled due to installation issues
 ]
 
 # Add any paths that contain templates here, relative to this directory.

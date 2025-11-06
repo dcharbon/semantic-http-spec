@@ -1,3 +1,5 @@
 *.*.sw*
 .vscode
 build
+docs/.doctrees/
+docs/.buildinfo
