@@ -1,1 +1,65 @@
-theme: jekyll-theme-slate
+# Jupyter Book Configuration
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Semantic HTTP Resources
+author: Quansight LLC
+copyright: "2019"
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/dcharbon/semantic-http-spec
+  path_to_book: ""
+  branch: main
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: false
+  baseurl: https://dcharbon.github.io/semantic-http-spec/
+
+# Parse and render settings
+parse:
+  myst_enable_extensions:
+    # Enable MyST extensions for better Markdown support
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+
+# Sphinx configuration
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.httpdomain
+    - sphinxcontrib.httpexample
+  config:
+    # Disable the default Sphinx extensions that might conflict
+    html_theme: sphinx_book_theme
+    html_theme_options:
+      repository_url: https://github.com/dcharbon/semantic-http-spec
+      use_repository_button: true
+      use_issues_button: true
+    # Enable todo extension
+    todo_include_todos: true
+    # Keep compatibility with Sphinx RST files
+    source_suffix:
+      .rst: restructuredtext
+      .md: myst-nb

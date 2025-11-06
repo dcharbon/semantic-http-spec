@@ -1,0 +1,15 @@
+# Table of Contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: source/index
+chapters:
+  - file: source/about
+  - file: source/introduction
+  - file: source/semantic_http_resource
+  - file: source/schema
+  - file: source/rdf_context
+  - file: source/http_schema_resource
+  - file: source/restful_json_api
+  - file: source/semantic_architecture
+  - file: source/references
