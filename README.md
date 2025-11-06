@@ -54,6 +54,56 @@ To enable GitHub Pages for this repository:
 
 The site will be published at: `https://dcharbon.github.io/semantic-http-spec/`
 
+## Semantic HTTP Mapping
+
+This project includes a groundbreaking **Semantic HTTP Mapping** system that allows you to add semantic layers to existing REST APIs without modifying them. Think of it as "TypeScript declaration files for REST APIs."
+
+### Quick Start
+
+```bash
+# Generate a semantic mapping for any API
+python tools/semantic_mapper.py
+
+# Run the generated proxy
+cd example-proxy
+pip install -r requirements.txt
+python app.py
+
+# Test it
+curl -X OPTIONS http://localhost:8080/users/123
+```
+
+### Key Features
+
+- **AI-powered semantic inference** - Automatically infers schema.org mappings from field names
+- **Proxy generation** - Creates production-ready proxy services
+- **Community mappings** - Share and reuse mappings for popular APIs
+- **Zero modification** - Works with any existing REST API
+
+### Documentation
+
+- [Mapping Overview](MAPPING_OVERVIEW.md) - Executive overview of the mapping system
+- [Mapping Guide](SEMANTIC_MAPPING_GUIDE.md) - Complete user guide
+- [Tool Architecture](MAPPING_TOOL_ARCHITECTURE.md) - Technical architecture
+- [Analysis & Solution](ANALYSIS_AND_SOLUTION_SUMMARY.md) - Detailed analysis
+
+### Examples
+
+- [Stripe Customer API](examples/stripe-customers-mapping.yaml) - Real-world example
+- [Generated Example](example-mapping.yaml) - Auto-generated mapping
+
+## License
+
+This project uses multiple licenses for different components:
+
+- **Specification** (files in `source/*.rst`): [Creative Commons Attribution 4.0 International](LICENSE-SPEC)
+  - The Semantic HTTP specification is a standard and should be freely implementable by anyone
+- **Code, Tools & Examples**: [Apache License 2.0](LICENSE)
+  - All implementation code, tools, mappings, and examples use the business-friendly Apache 2.0 license
+  - Includes patent protection and allows commercial use
+
+See the [LICENSE](LICENSE) and [LICENSE-SPEC](LICENSE-SPEC) files for full details.
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/openteamsinc/semantic-http-spec/edit/master/README.md) to maintain and preview the content for your website in Markdown files.

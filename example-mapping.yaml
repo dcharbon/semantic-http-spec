@@ -1,4 +1,6 @@
-# Copyright © 2025 David Charboneau
+# Copyright 2025 David Charboneau
+# Licensed under the Apache License, Version 2.0
+# See LICENSE file for details
 
 $schema: https://semantic-http-spec.org/mapping-schema/v0.1
 version: '0.1'
