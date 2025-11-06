@@ -9,16 +9,31 @@ The full documentation is available on [GitHub Pages](https://dcharbon.github.io
 
 This project uses [Jupyter Book](https://jupyterbook.org/) (v1.x, Sphinx-based) to generate documentation from the RST files in the `source/` directory.
 
+### Prerequisites
+
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management. To install uv:
+
+```bash
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Or with pip
+pip install uv
+```
+
 ### Local Build
 
 To build the documentation locally:
 
 ```bash
-# Install dependencies
-pip install "jupyter-book<2" sphinxcontrib-httpdomain sphinxcontrib-httpexample
+# Install dependencies (creates virtual environment and installs packages)
+uv sync
 
 # Build HTML documentation
-jupyter-book build .
+uv run jupyter-book build .
 ```
 
 The built documentation will be in the `_build/html/` directory.
