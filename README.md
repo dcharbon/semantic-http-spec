@@ -1,6 +1,46 @@
 # semantic-http-spec
 Specification of a semantic resource protocol building on HTTP. Specifies additional headers and content on HTTP requests and responses to support rich discovery of schema and semantic web data for resources made available via HTTP.
 
+## Documentation
+
+The full documentation is available on [GitHub Pages](https://dcharbon.github.io/semantic-http-spec/).
+
+## Building the Documentation
+
+This project uses [Sphinx](https://www.sphinx-doc.org/) to generate documentation from the RST files in the `source/` directory.
+
+### Local Build
+
+To build the documentation locally:
+
+```bash
+# Install dependencies
+pip install sphinx sphinxcontrib-httpdomain sphinxcontrib-httpexample
+
+# Build HTML documentation
+make html
+# or
+sphinx-build -b html source docs
+```
+
+The built documentation will be in the `docs/` directory.
+
+### Automated Builds
+
+Documentation is automatically built and deployed via GitHub Actions when changes are pushed to the main branch.
+
+## GitHub Pages Setup
+
+To enable GitHub Pages for this repository:
+
+1. Go to repository Settings → Pages
+2. Under "Build and deployment":
+   - Source: Deploy from a branch
+   - Branch: Select `main` (or `master`) and `/docs` folder
+   - Click Save
+
+The site will be published at: `https://dcharbon.github.io/semantic-http-spec/`
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/openteamsinc/semantic-http-spec/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
