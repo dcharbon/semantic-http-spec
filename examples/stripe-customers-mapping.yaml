@@ -1,0 +1,382 @@
+# Stripe Customer API - Semantic HTTP Mapping
+# Maps Stripe's customer API to Semantic HTTP Resource specification
+
+$schema: "https://semantic-http-spec.org/mapping-schema/v0.1"
+version: "0.1"
+
+metadata:
+  apiName: "Stripe Customer API"
+  apiVersion: "2023-10-16"
+  mappingVersion: "1.0.0"
+  author: "Semantic HTTP Spec Community"
+  license: "MIT"
+  description: "Customer management API for Stripe payment processing"
+  baseUrl: "https://api.stripe.com"
+  documentation: "https://stripe.com/docs/api/customers"
+  semanticBaseUrl: "https://semantic.stripe.com"
+
+source:
+  openApiSpec: "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml"
+
+authentication:
+  type: bearer
+  passthrough: true
+  transform:
+    from: "Authorization"
+    to: "Authorization"
+    location: header
+
+semanticContext:
+  contextUrl: "https://semantic-specs.org/stripe/v1/context.jsonld"
+
+  vocabularies:
+    - namespace: "schema"
+      uri: "http://schema.org/"
+    - namespace: "stripe"
+      uri: "https://semantic-specs.org/stripe/v1/vocab#"
+
+  commonTypes:
+    - name: "Customer"
+      rdfType: "schema:Person"
+      description: "A Stripe customer representing a person or organization"
+    - name: "Address"
+      rdfType: "schema:PostalAddress"
+      description: "Physical address"
+
+endpoints:
+  # GET /customers/{id} - Retrieve a customer
+  - path: "/customers/{id}"
+
+    source:
+      path: "/v1/customers/{id}"
+      pathParameters:
+        - semantic: "id"
+          source: "id"
+
+    semanticType: "schema:Person"
+    description: "Retrieve details of an existing customer"
+
+    schema:
+      url: "https://semantic-specs.org/stripe/v1/schemas/customer.json"
+      deriveFrom: transform
+
+    context:
+      url: "https://semantic-specs.org/stripe/v1/contexts/customer.jsonld"
+      extends: "https://semantic-specs.org/stripe/v1/context.jsonld"
+
+    methods:
+      get:
+        enabled: true
+        description: "Retrieve customer details"
+
+        responseMapping:
+          fields:
+            - source: "$.id"
+              semantic: "id"
+              semanticProperty: "schema:identifier"
+              type: "string"
+              required: true
+              description: "Unique customer identifier"
+
+            - source: "$.email"
+              semantic: "email"
+              semanticProperty: "schema:email"
+              type: "string"
+              required: false
+              description: "Customer email address"
+
+            - source: "$.name"
+              semantic: "name"
+              semanticProperty: "schema:name"
+              type: "string"
+              required: false
+              description: "Customer full name"
+
+            - source: "$.description"
+              semantic: "description"
+              semanticProperty: "schema:description"
+              type: "string"
+              required: false
+              description: "Customer description"
+
+            - source: "$.phone"
+              semantic: "telephone"
+              semanticProperty: "schema:telephone"
+              type: "string"
+              required: false
+              description: "Phone number"
+
+            - source: "$.address"
+              semantic: "address"
+              semanticProperty: "schema:address"
+              type: "object"
+              required: false
+              description: "Physical address"
+              fields:
+                - source: "$.address.line1"
+                  semantic: "streetAddress"
+                  semanticProperty: "schema:streetAddress"
+                  type: "string"
+
+                - source: "$.address.city"
+                  semantic: "addressLocality"
+                  semanticProperty: "schema:addressLocality"
+                  type: "string"
+
+                - source: "$.address.state"
+                  semantic: "addressRegion"
+                  semanticProperty: "schema:addressRegion"
+                  type: "string"
+
+                - source: "$.address.postal_code"
+                  semantic: "postalCode"
+                  semanticProperty: "schema:postalCode"
+                  type: "string"
+
+                - source: "$.address.country"
+                  semantic: "addressCountry"
+                  semanticProperty: "schema:addressCountry"
+                  type: "string"
+
+            - source: "$.balance"
+              semantic: "accountBalance"
+              semanticProperty: "stripe:balance"
+              type: "integer"
+              transform: "centsToDollars"
+              required: true
+              description: "Current balance in dollars"
+
+            - source: "$.created"
+              semantic: "dateCreated"
+              semanticProperty: "schema:dateCreated"
+              type: "string"
+              transform: "unixToISO8601"
+              required: true
+              description: "Customer creation timestamp"
+
+            - source: "$.metadata"
+              semantic: "metadata"
+              semanticProperty: "stripe:metadata"
+              type: "object"
+              required: false
+              description: "Custom metadata key-value pairs"
+
+        responses:
+          "200":
+            description: "Successfully retrieved customer"
+            schema: "https://semantic-specs.org/stripe/v1/schemas/customer.json"
+            context: "https://semantic-specs.org/stripe/v1/contexts/customer.jsonld"
+
+          "401":
+            description: "Authentication required"
+            schema: "https://semantic-specs.org/stripe/v1/schemas/error.json"
+            context: "https://semantic-specs.org/stripe/v1/contexts/error.jsonld"
+
+          "404":
+            description: "Customer not found"
+            schema: "https://semantic-specs.org/stripe/v1/schemas/error.json"
+            context: "https://semantic-specs.org/stripe/v1/contexts/error.jsonld"
+
+      put:
+        enabled: true
+        description: "Update customer details"
+
+        requestMapping:
+          fields:
+            - semantic: "email"
+              source: "email"
+              semanticProperty: "schema:email"
+              type: "string"
+              required: false
+
+            - semantic: "name"
+              source: "name"
+              semanticProperty: "schema:name"
+              type: "string"
+              required: false
+
+            - semantic: "telephone"
+              source: "phone"
+              semanticProperty: "schema:telephone"
+              type: "string"
+              required: false
+
+            - semantic: "address"
+              source: "address"
+              semanticProperty: "schema:address"
+              type: "object"
+              required: false
+              fields:
+                - semantic: "streetAddress"
+                  source: "line1"
+                  semanticProperty: "schema:streetAddress"
+                  type: "string"
+
+                - semantic: "addressLocality"
+                  source: "city"
+                  semanticProperty: "schema:addressLocality"
+                  type: "string"
+
+        responses:
+          "200":
+            description: "Successfully updated customer"
+            schema: "https://semantic-specs.org/stripe/v1/schemas/customer.json"
+            context: "https://semantic-specs.org/stripe/v1/contexts/customer.jsonld"
+            responseMapping:
+              # Inherits from GET responseMapping
+              $ref: "#/endpoints/0/methods/get/responseMapping"
+
+          "400":
+            description: "Invalid request parameters"
+            schema: "https://semantic-specs.org/stripe/v1/schemas/error.json"
+            context: "https://semantic-specs.org/stripe/v1/contexts/error.jsonld"
+
+      delete:
+        enabled: true
+        description: "Delete a customer"
+
+        responses:
+          "200":
+            description: "Successfully deleted customer"
+            schema: "https://semantic-specs.org/stripe/v1/schemas/deleted-object.json"
+            context: "https://semantic-specs.org/stripe/v1/contexts/deleted-object.jsonld"
+
+          "404":
+            description: "Customer not found"
+
+  # POST /customers - Create a customer
+  - path: "/customers"
+
+    source:
+      path: "/v1/customers"
+
+    semanticType: "schema:Person"
+    description: "Create a new customer"
+
+    methods:
+      post:
+        enabled: true
+        description: "Create a new customer"
+
+        requestMapping:
+          fields:
+            - semantic: "email"
+              source: "email"
+              semanticProperty: "schema:email"
+              type: "string"
+              required: false
+              description: "Customer email address"
+
+            - semantic: "name"
+              source: "name"
+              semanticProperty: "schema:name"
+              type: "string"
+              required: false
+              description: "Customer name"
+
+            - semantic: "description"
+              source: "description"
+              semanticProperty: "schema:description"
+              type: "string"
+              required: false
+
+            - semantic: "metadata"
+              source: "metadata"
+              semanticProperty: "stripe:metadata"
+              type: "object"
+              required: false
+
+        responses:
+          "201":
+            description: "Successfully created customer"
+            schema: "https://semantic-specs.org/stripe/v1/schemas/customer.json"
+            context: "https://semantic-specs.org/stripe/v1/contexts/customer.jsonld"
+            responseMapping:
+              $ref: "#/endpoints/0/methods/get/responseMapping"
+
+          "400":
+            description: "Invalid request"
+
+transformations:
+  - name: "centsToDollars"
+    description: "Convert cents (integer) to dollars (decimal)"
+    language: javascript
+    code: |
+      function transform(cents) {
+        return cents / 100.0;
+      }
+    examples:
+      - input: 1050
+        output: 10.50
+      - input: 0
+        output: 0.00
+
+  - name: "unixToISO8601"
+    description: "Convert Unix timestamp to ISO 8601 date string"
+    language: javascript
+    code: |
+      function transform(timestamp) {
+        return new Date(timestamp * 1000).toISOString();
+      }
+    examples:
+      - input: 1678886400
+        output: "2023-03-15T12:00:00.000Z"
+
+configuration:
+  caching:
+    enabled: true
+    ttl:
+      options: 3600      # 1 hour
+      schemas: 86400     # 24 hours
+      contexts: 86400    # 24 hours
+
+  rateLimiting:
+    passthrough: true    # Use Stripe's rate limiting
+
+  errorHandling:
+    errorMappings:
+      - sourceCode: 401
+        semanticCode: 401
+        semanticMessage: "Authentication required"
+        semanticType: "stripe:AuthenticationError"
+
+      - sourceCode: 404
+        semanticCode: 404
+        semanticMessage: "Resource not found"
+        semanticType: "stripe:ResourceNotFoundError"
+
+      - sourceCode: 429
+        semanticCode: 429
+        semanticMessage: "Rate limit exceeded"
+        semanticType: "stripe:RateLimitError"
+
+validation:
+  testCases:
+    - name: "Retrieve existing customer"
+      endpoint: "/customers/cus_test123"
+      method: GET
+      request:
+        headers:
+          Authorization: "Bearer sk_test_..."
+      expectedResponse:
+        status: 200
+        headers:
+          Link: '<https://semantic-specs.org/stripe/v1/schemas/customer.json>; rel="describedby"'
+        bodyPattern:
+          id: "cus_test123"
+          email: "^[^@]+@[^@]+$"  # Regex pattern
+        validateSemantics: true
+
+    - name: "OPTIONS request returns HTTP Schema Resource"
+      endpoint: "/customers/cus_test123"
+      method: OPTIONS
+      expectedResponse:
+        status: 200
+        bodyPattern:
+          get:
+            responses:
+              "200":
+                content:
+                  "application/json":
+                    schema: "https://semantic-specs.org/stripe/v1/schemas/customer.json"
+                    context: "https://semantic-specs.org/stripe/v1/contexts/customer.jsonld"

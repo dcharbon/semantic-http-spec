@@ -1,0 +1,206 @@
+# Semantic HTTP Mapping Specification Format
+# Version: 0.1.0
+#
+# This specification defines how to map existing REST APIs to the
+# Semantic HTTP Resource specification without modifying the original API.
+
+$schema: "https://semantic-http-spec.org/mapping-schema/v0.1"
+version: "0.1"
+
+# Metadata about this mapping
+metadata:
+  apiName: string              # Human-readable API name
+  apiVersion: string           # API version this mapping covers
+  mappingVersion: string       # Version of this mapping
+  author: string              # Mapping author
+  license: string             # License (e.g., MIT, Apache-2.0)
+  description: string         # What this API does
+  baseUrl: string             # Base URL of the original API
+  documentation: string       # Link to API docs
+  semanticBaseUrl: string     # Base URL where semantic proxy will be hosted
+
+# Source OpenAPI specification
+source:
+  # Reference to existing OpenAPI spec (URL or file path)
+  openApiSpec: string
+  # Or inline OpenAPI if needed
+  openApiInline: object
+
+# Authentication passthrough configuration
+authentication:
+  type: enum[apiKey, bearer, oauth2, basic, custom]
+  passthrough: boolean        # Whether to pass auth headers directly
+  transform:                  # Optional auth transformation rules
+    from: string             # Header/param name in semantic API
+    to: string               # Header/param name in source API
+    location: enum[header, query, body]
+
+# Global semantic context
+semanticContext:
+  # Primary JSON-LD context for this API
+  contextUrl: string          # URL to JSON-LD context
+  # Or inline context
+  contextInline: object
+
+  # Common vocabularies used
+  vocabularies:
+    - namespace: string       # e.g., "schema"
+      uri: string            # e.g., "http://schema.org/"
+
+  # Common semantic types used in this API
+  commonTypes:
+    - name: string           # e.g., "Customer"
+      rdfType: string        # e.g., "schema:Person"
+      description: string
+
+# Endpoint mappings
+endpoints:
+  # Each endpoint mapping
+  - path: string             # Path in semantic API (e.g., "/customers/{id}")
+
+    # Source API details
+    source:
+      path: string           # Path in source API (e.g., "/v1/customers/{id}")
+      pathParameters:        # Parameter transformations
+        - semantic: string   # Parameter name in semantic API
+          source: string     # Parameter name in source API
+          transform: string  # Optional: transformation function
+
+    # Semantic metadata
+    semanticType: string     # RDF type (e.g., "schema:Person")
+    description: string
+
+    # Schema information
+    schema:
+      url: string            # URL to JSON Schema for this resource
+      inline: object         # Or inline JSON Schema
+      deriveFrom: enum[source, transform, custom]
+
+    # Context information
+    context:
+      url: string            # URL to JSON-LD context
+      inline: object         # Or inline context
+      extends: string        # Reference to global context
+
+    # HTTP methods mapping
+    methods:
+      get:
+        enabled: boolean
+        description: string
+
+        # Field mappings for response
+        responseMapping:
+          fields:
+            - source: string          # Field path in source API (JSONPath)
+              semantic: string        # Field name in semantic API
+              semanticProperty: string # RDF property (e.g., "schema:email")
+              type: string           # JSON Schema type
+              transform: string      # Optional: transformation function
+              required: boolean
+              description: string
+
+        # Response codes
+        responses:
+          "200":
+            description: string
+            schema: string           # Reference to schema
+            context: string          # Reference to context
+          "404":
+            description: string
+            schema: string
+            context: string
+          # ... other response codes
+
+      post:
+        enabled: boolean
+        description: string
+
+        # Request body mapping
+        requestMapping:
+          fields:
+            - semantic: string       # Field in semantic API request
+              source: string         # Field in source API request
+              semanticProperty: string
+              type: string
+              transform: string
+              required: boolean
+              description: string
+
+        responses:
+          "201":
+            description: string
+            schema: string
+            context: string
+            # Response mapping (similar to GET)
+            responseMapping: object
+          # ... other responses
+
+      put:
+        enabled: boolean
+        # Similar structure to POST
+
+      patch:
+        enabled: boolean
+        # Similar structure to POST
+
+      delete:
+        enabled: boolean
+        responses:
+          "204":
+            description: string
+
+# Transformation functions
+# Referenced by name in field mappings
+transformations:
+  - name: string              # Function name (e.g., "centsToDollars")
+    description: string
+    language: enum[jsonata, jq, javascript, python]
+    code: string             # Transformation code
+
+    # Examples for validation
+    examples:
+      - input: any
+        output: any
+
+# Global configuration
+configuration:
+  # Caching strategy
+  caching:
+    enabled: boolean
+    ttl:
+      options: number        # Cache OPTIONS responses (seconds)
+      schemas: number        # Cache schemas (seconds)
+      contexts: number       # Cache contexts (seconds)
+
+  # Rate limiting
+  rateLimiting:
+    passthrough: boolean     # Use source API rate limits
+    custom:
+      requests: number
+      window: number         # seconds
+
+  # Error handling
+  errorHandling:
+    # Map source API errors to semantic errors
+    errorMappings:
+      - sourceCode: number   # HTTP status code
+        sourcePattern: string # Optional: match error message pattern
+        semanticCode: number
+        semanticMessage: string
+        semanticType: string  # RDF type for error
+
+# Testing and validation
+validation:
+  # Test cases to validate mapping
+  testCases:
+    - name: string
+      endpoint: string
+      method: enum[GET, POST, PUT, PATCH, DELETE, OPTIONS]
+      request:
+        headers: object
+        body: object
+      expectedResponse:
+        status: number
+        headers: object
+        bodyPattern: object  # JSON pattern to match
+      validateSemantics: boolean

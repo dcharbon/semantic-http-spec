@@ -1,0 +1,68 @@
+$schema: https://semantic-http-spec.org/mapping-schema/v0.1
+version: '0.1'
+metadata:
+  apiName: Example User API
+  apiVersion: v1
+  mappingVersion: 1.0.0
+  baseUrl: https://api.example.com
+  semanticBaseUrl: https://semantic.example.com
+semanticContext:
+  contextUrl: https://semantic.example.com/context.jsonld
+  vocabularies:
+  - namespace: schema
+    uri: http://schema.org/
+endpoints:
+- path: /users/{id}
+  source:
+    path: /users/{id}
+  semanticType: schema:Person
+  schema:
+    url: https://semantic.example.com/schema.json
+    deriveFrom: transform
+  context:
+    url: https://semantic.example.com/context.jsonld
+  methods:
+    get:
+      enabled: true
+      responseMapping:
+        fields:
+        - source: $.id
+          semantic: id
+          semantic_property: schema:identifier
+          type: string
+          transform: null
+          required: true
+          description: User ID
+        - source: $.email
+          semantic: email
+          semantic_property: schema:email
+          type: string
+          transform: null
+          required: true
+          description: Email address
+        - source: $.name
+          semantic: name
+          semantic_property: schema:name
+          type: string
+          transform: null
+          required: false
+          description: Full name
+        - source: $.phone
+          semantic: phone
+          semantic_property: schema:telephone
+          type: string
+          transform: null
+          required: false
+          description: Phone number
+        - source: $.created_at
+          semantic: created_at
+          semantic_property: schema:DateTime
+          type: string
+          transform: null
+          required: false
+          description: Creation date
+      responses:
+        '200':
+          description: Success
+          schema: https://semantic.example.com/schema.json
+          context: https://semantic.example.com/context.jsonld
