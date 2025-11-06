@@ -4,6 +4,8 @@ Semantic HTTP Mapper - Proof of Concept
 
 A minimal viable tool for creating and managing semantic HTTP mappings.
 This POC demonstrates the core concepts of the mapping tool architecture.
+
+Copyright © 2025 David Charboneau
 """
 
 import yaml

@@ -527,3 +527,7 @@ By allowing anyone to add semantic layers to existing APIs, we:
 - 🤝 Contribute code or mappings
 
 Let's make every API semantic!
+
+---
+
+Copyright © 2025 David Charboneau

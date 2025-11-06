@@ -511,3 +511,7 @@ $ semantic-map generate-client stripe-customers-mapping.yaml \
 3. **Build Simple Proxy Generator** - Python only initially
 4. **Establish Community** - GitHub repo, Discord, documentation
 5. **Seek Feedback** - From API providers and consumers
+
+---
+
+Copyright © 2025 David Charboneau

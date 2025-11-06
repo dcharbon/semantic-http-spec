@@ -1,5 +1,7 @@
 # Stripe Customer API - Semantic HTTP Mapping
 # Maps Stripe's customer API to Semantic HTTP Resource specification
+#
+# Copyright © 2025 David Charboneau
 
 $schema: "https://semantic-http-spec.org/mapping-schema/v0.1"
 version: "0.1"

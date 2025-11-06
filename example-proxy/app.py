@@ -2,6 +2,8 @@
 """
 Semantic HTTP Proxy
 Auto-generated from mapping specification
+
+Copyright © 2025 David Charboneau
 """
 
 from flask import Flask, request, jsonify

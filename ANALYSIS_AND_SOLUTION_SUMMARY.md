@@ -361,3 +361,7 @@ Branch: `claude/review-http-rest-spec-011CUquHUGizL2At99sRd3Xw`
 - Example expansion
 - User testing
 - Standards discussion
+
+---
+
+Copyright © 2025 David Charboneau

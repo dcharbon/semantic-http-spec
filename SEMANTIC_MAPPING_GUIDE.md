@@ -553,3 +553,7 @@ We welcome contributions!
 - Share use cases
 
 Let's build the semantic web together, one API at a time!
+
+---
+
+Copyright © 2025 David Charboneau

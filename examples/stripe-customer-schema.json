@@ -1,4 +1,5 @@
 {
+  "_copyright": "Copyright © 2025 David Charboneau",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://semantic-specs.org/stripe/v1/schemas/customer.json",
   "title": "Customer",
