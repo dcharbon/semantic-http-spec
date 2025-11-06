@@ -1,0 +1,37 @@
+[project]
+name = "semantic-http-spec"
+version = "0.1.0"
+description = "Specification of a semantic resource protocol building on HTTP"
+authors = [
+    {name = "semantic-http-spec contributors"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "jupyter-book<2",
+    "sphinxcontrib-httpdomain",
+    "sphinxcontrib-httpexample",
+    "sphinx-jsonschema",
+]
+
+[project.urls]
+Homepage = "https://github.com/dcharbon/semantic-http-spec"
+Documentation = "https://dcharbon.github.io/semantic-http-spec/"
+Repository = "https://github.com/dcharbon/semantic-http-spec"
+
+[tool.uv]
+dev-dependencies = []
+
+# This is a documentation-only project, no Python package to build
+[tool.uv.sources]

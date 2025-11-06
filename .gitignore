@@ -5,3 +5,12 @@ _build
 .jupyter_cache
 docs/.doctrees/
 docs/.buildinfo
+
+# uv
+.venv/
+.python-version
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
