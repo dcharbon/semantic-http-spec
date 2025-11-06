@@ -7,7 +7,7 @@ The full documentation is available on [GitHub Pages](https://dcharbon.github.io
 
 ## Building the Documentation
 
-This project uses [Sphinx](https://www.sphinx-doc.org/) to generate documentation from the RST files in the `source/` directory.
+This project uses [Jupyter Book](https://jupyterbook.org/) (v1.x, Sphinx-based) to generate documentation from the RST files in the `source/` directory.
 
 ### Local Build
 
@@ -15,19 +15,17 @@ To build the documentation locally:
 
 ```bash
 # Install dependencies
-pip install sphinx sphinxcontrib-httpdomain sphinxcontrib-httpexample
+pip install "jupyter-book<2" sphinxcontrib-httpdomain sphinxcontrib-httpexample
 
 # Build HTML documentation
-make html
-# or
-sphinx-build -b html source docs
+jupyter-book build .
 ```
 
-The built documentation will be in the `docs/` directory.
+The built documentation will be in the `_build/html/` directory.
 
 ### Automated Builds
 
-Documentation is automatically built and deployed via GitHub Actions when changes are pushed to the main branch.
+Documentation is automatically built and deployed via GitHub Actions when changes are pushed to the main branch. The workflow builds the book and copies the output to the `docs/` directory for GitHub Pages deployment.
 
 ## GitHub Pages Setup
 

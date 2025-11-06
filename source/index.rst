@@ -6,19 +6,10 @@
 Welcome to Semantic HTTP Resources's documentation!
 ===================================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   about
-   introduction
-   semantic_http_resource
-   schema
-   rdf_context
-   http_schema_resource
-   restful_json_api
-   semantic_architecture
-   references
+This specification builds upon the original web standards by defining a
+standard set of hyperlinks and entity resource types to provide a rich
+description of both the data provided by an HTTP API and the HTTP methods
+supported for every resource provided by that API.
 
 Indices and tables
 ==================

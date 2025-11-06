@@ -2,9 +2,11 @@ channels:
 - conda-forge
 - defaults
 dependencies:
-- sphinx
-- sphinxcontrib-httpdomain
-- sphinxcontrib-httpexample
+- python>=3.9
+- pip
 - pip:
+  - jupyter-book<2
+  - sphinxcontrib-httpdomain
+  - sphinxcontrib-httpexample
   - sphinx-jsonschema
-name: sphinx-doc
+name: jupyter-book-doc

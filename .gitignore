@@ -1,5 +1,7 @@
 *.*.sw*
 .vscode
 build
+_build
+.jupyter_cache
 docs/.doctrees/
 docs/.buildinfo
