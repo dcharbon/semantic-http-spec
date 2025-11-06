@@ -1,0 +1,86 @@
+{
+  "_copyright": "Copyright 2025 David Charboneau. Licensed under the Apache License, Version 2.0. See LICENSE file for details.",
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://semantic-specs.org/stripe/v1/vocab#",
+
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "stripe": "https://semantic-specs.org/stripe/v1/vocab#",
+
+    "Customer": {
+      "@id": "schema:Person",
+      "@type": "@id"
+    },
+
+    "id": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+
+    "telephone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+
+    "address": {
+      "@id": "schema:address",
+      "@type": "schema:PostalAddress"
+    },
+
+    "streetAddress": {
+      "@id": "schema:streetAddress",
+      "@type": "xsd:string"
+    },
+
+    "addressLocality": {
+      "@id": "schema:addressLocality",
+      "@type": "xsd:string"
+    },
+
+    "addressRegion": {
+      "@id": "schema:addressRegion",
+      "@type": "xsd:string"
+    },
+
+    "postalCode": {
+      "@id": "schema:postalCode",
+      "@type": "xsd:string"
+    },
+
+    "addressCountry": {
+      "@id": "schema:addressCountry",
+      "@type": "xsd:string"
+    },
+
+    "accountBalance": {
+      "@id": "stripe:balance",
+      "@type": "xsd:decimal"
+    },
+
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+
+    "metadata": {
+      "@id": "stripe:metadata",
+      "@type": "@json"
+    }
+  }
+}

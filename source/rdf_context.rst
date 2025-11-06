@@ -1,5 +1,10 @@
 .. index:: RDF Context Link Header
 
+.. Copyright © 2025 David Charboneau
+..    This work is licensed under Creative Commons Attribution 4.0 International
+..    https://creativecommons.org/licenses/by/4.0/
+
+
 .. _RDF Context Link Header:
 
 ***********************

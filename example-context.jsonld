@@ -1,0 +1,28 @@
+{
+  "_copyright": "Copyright 2025 David Charboneau. Licensed under the Apache License, Version 2.0. See LICENSE file for details.",
+  "@context": {
+    "@version": 1.1,
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "created_at": {
+      "@id": "schema:DateTime",
+      "@type": "xsd:string"
+    }
+  }
+}

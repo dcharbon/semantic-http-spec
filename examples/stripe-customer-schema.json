@@ -1,0 +1,96 @@
+{
+  "_copyright": "Copyright 2025 David Charboneau. Licensed under the Apache License, Version 2.0. See LICENSE file for details.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://semantic-specs.org/stripe/v1/schemas/customer.json",
+  "title": "Customer",
+  "description": "A Stripe customer object with semantic annotations",
+  "type": "object",
+  "required": ["id", "dateCreated"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the customer",
+      "pattern": "^cus_[a-zA-Z0-9]+$",
+      "x-semantic-property": "schema:identifier"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Customer's email address",
+      "x-semantic-property": "schema:email"
+    },
+    "name": {
+      "type": "string",
+      "description": "Customer's full name",
+      "x-semantic-property": "schema:name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Arbitrary description of the customer",
+      "x-semantic-property": "schema:description"
+    },
+    "telephone": {
+      "type": "string",
+      "description": "Customer's phone number",
+      "x-semantic-property": "schema:telephone"
+    },
+    "address": {
+      "type": "object",
+      "description": "Customer's physical address",
+      "x-semantic-property": "schema:address",
+      "x-semantic-type": "schema:PostalAddress",
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "description": "Street address",
+          "x-semantic-property": "schema:streetAddress"
+        },
+        "addressLocality": {
+          "type": "string",
+          "description": "City or locality",
+          "x-semantic-property": "schema:addressLocality"
+        },
+        "addressRegion": {
+          "type": "string",
+          "description": "State or region",
+          "x-semantic-property": "schema:addressRegion"
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal or ZIP code",
+          "x-semantic-property": "schema:postalCode"
+        },
+        "addressCountry": {
+          "type": "string",
+          "description": "Two-letter country code (ISO 3166-1 alpha-2)",
+          "x-semantic-property": "schema:addressCountry",
+          "pattern": "^[A-Z]{2}$"
+        }
+      }
+    },
+    "accountBalance": {
+      "type": "number",
+      "description": "Current balance in dollars (converted from cents)",
+      "x-semantic-property": "stripe:balance",
+      "x-source-field": "balance",
+      "x-transformation": "centsToDollars"
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of when customer was created",
+      "x-semantic-property": "schema:dateCreated",
+      "x-source-field": "created",
+      "x-transformation": "unixToISO8601"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Custom metadata key-value pairs",
+      "x-semantic-property": "stripe:metadata",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "x-semantic-type": "schema:Person"
+}
